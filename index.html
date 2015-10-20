@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" href="styles.css">
 
@@ -11,36 +17,71 @@
 <body>
 
 	<div class="form-wrapper">
+		<form name="signUpForm" onsubmit="return (validateForm());">
+			<div id="name-wrapper" class="form-group">
+				<h1>Sign up now!<span>Sign up and tell us what you think of our site!</span></h1>
 
-		<h1>Sign up now!<span>Sign up and tell us what you think of our site!</span></h1>
+				<div class="section"><span>1</span>First Name & Address</div>
+				<div class="inner-wrap">
+					<label class="control-label">Your Full Name <input class="form-control" id="name" type="text" name="fullName" placeholder="Your Full Name"></label>
 
-		<div class="section"><span>1</span>First Name & Address</div>
-		<div class="inner-wrap">
-			<label>Your Full Name <input type="text" name="fullName" placeholder="Your Full Name"></label>
-			<label>Address <textarea name="address"></textarea></label>
-		</div>
+					<label class="control-label">Address <textarea name="address"></textarea></label>
+				</div>
+			</div>
+				<div class="section"><span>2</span>Email & Phone</div>
+				<div class="inner-wrap">
+			        <label class="control-label">Email Address <input type="email" name="email" /></label>
+			        <label class="control-label">Phone Number <input type="text" name="phoneNumber" /></label>
+				</div>
 
-		<div class="section"><span>2</span>Email & Phone</div>
-		<div class="inner-wrap">
-	        <label>Email Address <input type="email" name="email" /></label>
-	        <label>Phone Number <input type="text" name="phoneNumber" /></label>
-		</div>
+				<div class="section"><span>3</span>Password</div>
+				<div class="inner-wrap">
+			        <label class="control-label">Password <input type="password" name="password" /></label>
+			        <label class="control-label">Confirm Password <input type="password" name="password2" /></label>			
+				</div>
 
-		<div class="section"><span>3</span>Password</div>
-		<div class="inner-wrap">
-	        <label>Password <input type="password" name="password" /></label>
-	        <label>Confirm Password <input type="password" name="password2" /></label>			
-		</div>
-
-		<div class="button-section">
-			<input type="submit" value="Sign me up!">
-			<span class="privacy-policy">
-				<input type="checkbox" name="privacy">I agree to the Terms an Policies
-			</span>
-
-		</div>
+				<div class="button-section">
+					<input type="submit" value="Sign me up!">
+					<span class="privacy-policy">
+						<input type="checkbox" name="privacy">I agree to the Terms an Policies
+					</span>
+				</div>
+			</div>
+		</form>
 
 	</div>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+
+
+	<script type="text/javascript">
+
+	function validateForm(){
+		// if(signUpForm.fullName.value == ""){
+		// if(document.getElementById('name').value == "")
+		if(signUpForm.fullName.value.length == ""){	
+			signUpForm.fullName.focus();
+			alert("You must enter your full name.");
+			document.getElementById('name-wrapper').className = 'form-group has-error';
+			return false;
+		}
+	}
+
+	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
